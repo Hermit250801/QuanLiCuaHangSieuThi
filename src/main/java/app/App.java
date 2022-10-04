@@ -1,12 +1,9 @@
 package app;
 
-import gui.TrangChuAdmin;
+import gui.DangNhap;
 
 public class App {
-
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		new TrangChuAdmin().setVisible(true);
+		DangNhap.getGuiDangNhap().setVisible(true);
 	}
-
 }
