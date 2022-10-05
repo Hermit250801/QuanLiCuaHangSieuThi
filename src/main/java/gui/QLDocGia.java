@@ -94,7 +94,7 @@ public class QLDocGia extends JPanel implements ActionListener, MouseListener, K
 //			e2.printStackTrace();
 //		}
 
-		setPreferredSize(new Dimension(2100, 1035));
+		setBounds(10, 162, 1550, 700);
 		try {
 			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 		} catch (ClassNotFoundException e1) {
@@ -110,14 +110,15 @@ public class QLDocGia extends JPanel implements ActionListener, MouseListener, K
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+
 		setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(DocGia.class.getResource("/img/reader (12).png")));
+		lblNewLabel.setIcon(new ImageIcon(KhachHang.class.getResource("/img/reader (12).png")));
 		lblNewLabel.setBounds(10, 11, 128, 137);
 		add(lblNewLabel);
 
-		JLabel lblDanhSchBn = new JLabel("   Danh SÃ¡ch Ä�á»™c Giáº£ ");
+		JLabel lblDanhSchBn = new JLabel("Danh Sách Khách Hàng");
 		lblDanhSchBn.setOpaque(true);
 		lblDanhSchBn.setHorizontalAlignment(SwingConstants.LEFT);
 		lblDanhSchBn.setForeground(new Color(204, 102, 51));
@@ -130,24 +131,24 @@ public class QLDocGia extends JPanel implements ActionListener, MouseListener, K
 		panel1.setBorder(new TitledBorder(
 				new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)),
 				"Ch\u1EE9c n\u0103ng", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel1.setBounds(10, 147, 1902, 80);
+		panel1.setBounds(10, 147, 1520, 80);
 		add(panel1);
 
-		btnDangKy = new JButton("Ä�Äƒng kÃ½");
-		btnDangKy.setIcon(new ImageIcon(DocGia.class.getResource("/img/plus_24.png")));
+		btnDangKy = new JButton("Đăng Kí");
+		btnDangKy.setIcon(new ImageIcon(KhachHang.class.getResource("/img/plus_24.png")));
 		btnDangKy.setForeground(Color.BLACK);
 		btnDangKy.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnDangKy.setBackground(Color.LIGHT_GRAY);
 
-		btnSua = new JButton("Sá»­a");
-		btnSua.setIcon(new ImageIcon(DocGia.class.getResource("/img/cap_nhat.png")));
+		btnSua = new JButton("Sửa");
+		btnSua.setIcon(new ImageIcon(KhachHang.class.getResource("/img/cap_nhat.png")));
 		btnSua.setForeground(Color.BLACK);
 		btnSua.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnSua.setBorder(new LineBorder(new Color(255, 255, 255), 0, true));
 		btnSua.setBackground(Color.LIGHT_GRAY);
 
-		btnXoa = new JButton("XÃ³a");
-		btnXoa.setIcon(new ImageIcon(DocGia.class.getResource("/img/negative.png")));
+		btnXoa = new JButton("Xóa");
+		btnXoa.setIcon(new ImageIcon(KhachHang.class.getResource("/img/negative.png")));
 		btnXoa.setForeground(Color.BLACK);
 		btnXoa.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnXoa.setBorder(new LineBorder(new Color(255, 255, 255), 0, true));
@@ -160,7 +161,7 @@ public class QLDocGia extends JPanel implements ActionListener, MouseListener, K
 		textTen.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		textTen.setColumns(10);
 
-		btnLamMoi = new JButton("LÃ m má»›i");
+		btnLamMoi = new JButton("Làm mới");
 		btnLamMoi.setIcon(new ImageIcon(QLDocGia.class.getResource("/img/exchange (1).png")));
 		btnLamMoi.setForeground(Color.BLACK);
 		btnLamMoi.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -210,7 +211,7 @@ public class QLDocGia extends JPanel implements ActionListener, MouseListener, K
 		panel1.setLayout(gl_panel1);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 224, 1902, 625);
+		scrollPane.setBounds(10, 221, 1520, 454);
 		add(scrollPane);
 		table = new JTable();
 		table.setRowHeight(30);
@@ -252,15 +253,15 @@ public class QLDocGia extends JPanel implements ActionListener, MouseListener, K
 //		}
 
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(11, 851, 1902, 54);
+		panel_2.setBounds(11, 851, 1550, 54);
 		add(panel_2);
 
 		btnDau = new JButton("");
-		btnDau.setIcon(new ImageIcon(DocGia.class.getResource("/img/previousEnd.png")));
+		btnDau.setIcon(new ImageIcon(KhachHang.class.getResource("/img/previousEnd.png")));
 		btnDau.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		btnTru1 = new JButton("");
-		btnTru1.setIcon(new ImageIcon(DocGia.class.getResource("/img/rewind-button.png")));
+		btnTru1.setIcon(new ImageIcon(KhachHang.class.getResource("/img/rewind-button.png")));
 		btnTru1.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtPage = new JLabel("1");
@@ -273,11 +274,11 @@ public class QLDocGia extends JPanel implements ActionListener, MouseListener, K
 		txtTongTrang.setFont(new Font("Tahoma", Font.BOLD, 16));
 
 		btnCong1 = new JButton("");
-		btnCong1.setIcon(new ImageIcon(DocGia.class.getResource("/img/nextbutton.png")));
+		btnCong1.setIcon(new ImageIcon(KhachHang.class.getResource("/img/nextbutton.png")));
 		btnCong1.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		btnCuoi = new JButton("");
-		btnCuoi.setIcon(new ImageIcon(DocGia.class.getResource("/img/nextEnd.png")));
+		btnCuoi.setIcon(new ImageIcon(KhachHang.class.getResource("/img/nextEnd.png")));
 		btnCuoi.setFont(new Font("Arial", Font.PLAIN, 16));
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING).addGap(0, 1848, Short.MAX_VALUE)

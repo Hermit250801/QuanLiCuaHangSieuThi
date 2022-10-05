@@ -5,6 +5,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -55,6 +56,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ImageIcon;
+import java.awt.BorderLayout;
 
 public class DSNhanVien extends JPanel implements ActionListener,MouseListener, KeyListener{
 	private DefaultTableModel modelSach;
@@ -108,10 +110,11 @@ public class DSNhanVien extends JPanel implements ActionListener,MouseListener, 
 //			e1.printStackTrace();
 //		}
 		setLayout(null);
+		setBounds(10, 162, 1550, 700);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(DSNhanVien.class.getResource("/img/employee (9).png")));
-		lblNewLabel.setBounds(10, 11, 128, 137);
+		lblNewLabel.setBounds(10, 0, 128, 126);
 		add(lblNewLabel);
 		
 		JLabel lblDanhSchBn = new JLabel("   Danh Sách Nhân Viên");
@@ -120,21 +123,23 @@ public class DSNhanVien extends JPanel implements ActionListener,MouseListener, 
 		lblDanhSchBn.setForeground(new Color(204, 102, 51));
 		lblDanhSchBn.setFont(new Font("Tahoma", Font.BOLD, 26));
 		lblDanhSchBn.setBackground(Color.WHITE);
-		lblDanhSchBn.setBounds(147, 55, 384, 54);
+		lblDanhSchBn.setBounds(143, 33, 384, 54);
 		add(lblDanhSchBn);
 		
 		JPanel panel1 = new JPanel();
 		panel1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Ch\u1EE9c n\u0103ng", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel1.setBounds(10, 147, 1902, 80);
+		panel1.setBounds(10, 130, 1516, 80);
 		add(panel1);
 		
 		 btnDangKy = new JButton("Đăng ký");
+		 btnDangKy.setBounds(10, 20, 127, 50);
 		 btnDangKy.setIcon(new ImageIcon(DSNhanVien.class.getResource("/img/plus_24.png")));
 		btnDangKy.setForeground(Color.BLACK);
 		btnDangKy.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnDangKy.setBackground(Color.LIGHT_GRAY);
 		
 		 btnSua = new JButton("Sửa");
+		 btnSua.setBounds(147, 20, 127, 50);
 		 btnSua.setIcon(new ImageIcon(DSNhanVien.class.getResource("/img/cap_nhat.png")));
 		btnSua.setForeground(Color.BLACK);
 		btnSua.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -142,6 +147,7 @@ public class DSNhanVien extends JPanel implements ActionListener,MouseListener, 
 		btnSua.setBackground(Color.LIGHT_GRAY);
 		
 		 btnXoa = new JButton("Xóa");
+		 btnXoa.setBounds(284, 20, 127, 50);
 		btnXoa.setIcon(new ImageIcon(DSNhanVien.class.getResource("/img/negative.png")));
 		btnXoa.setForeground(Color.BLACK);
 		btnXoa.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -149,13 +155,16 @@ public class DSNhanVien extends JPanel implements ActionListener,MouseListener, 
 		btnXoa.setBackground(Color.LIGHT_GRAY);
 		
 		JLabel lblNewLabel_1_1_1_1_1_1_1_1_1_1_1_1_1 = new JLabel("Tên:");
+		lblNewLabel_1_1_1_1_1_1_1_1_1_1_1_1_1.setBounds(1166, 35, 33, 20);
 		lblNewLabel_1_1_1_1_1_1_1_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		
 		textTen = new JTextField();
+		textTen.setBounds(1209, 32, 207, 26);
 		textTen.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		textTen.setColumns(10);
 		
 		 btnLamMoi = new JButton("Làm mới");
+		 btnLamMoi.setBounds(421, 20, 127, 50);
 		btnLamMoi.setIcon(new ImageIcon(DSNhanVien.class.getResource("/img/exchange (1).png")));
 		btnLamMoi.setForeground(Color.BLACK);
 		btnLamMoi.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -163,58 +172,20 @@ public class DSNhanVien extends JPanel implements ActionListener,MouseListener, 
 		btnLamMoi.setBackground(Color.LIGHT_GRAY);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setBounds(1405, 22, 63, 37);
 		lblNewLabel_1.setIcon(new ImageIcon(DSNhanVien.class.getResource("/img/search (1).png")));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		GroupLayout gl_panel1 = new GroupLayout(panel1);
-		gl_panel1.setHorizontalGroup(
-			gl_panel1.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel1.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(btnDangKy, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
-					.addGap(12)
-					.addComponent(btnSua, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addComponent(btnXoa, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
-					.addGap(13)
-					.addComponent(btnLamMoi, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 763, Short.MAX_VALUE)
-					.addComponent(lblNewLabel_1_1_1_1_1_1_1_1_1_1_1_1_1, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
-					.addGap(2)
-					.addComponent(textTen, GroupLayout.PREFERRED_SIZE, 421, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
-					.addGap(2))
-		);
-		gl_panel1.setVerticalGroup(
-			gl_panel1.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel1.createSequentialGroup()
-					.addGroup(gl_panel1.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel1.createSequentialGroup()
-							.addGap(6)
-							.addComponent(btnDangKy, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel1.createSequentialGroup()
-							.addGap(7)
-							.addGroup(gl_panel1.createParallelGroup(Alignment.BASELINE)
-								.addComponent(btnSua, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnXoa, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)))
-						.addGroup(gl_panel1.createSequentialGroup()
-							.addGap(8)
-							.addGroup(gl_panel1.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panel1.createSequentialGroup()
-									.addGap(2)
-									.addComponent(lblNewLabel_1_1_1_1_1_1_1_1_1_1_1_1_1, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_panel1.createParallelGroup(Alignment.TRAILING)
-									.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
-									.addComponent(textTen, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))))
-						.addGroup(gl_panel1.createSequentialGroup()
-							.addGap(8)
-							.addComponent(btnLamMoi, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(8, Short.MAX_VALUE))
-		);
-		panel1.setLayout(gl_panel1);
+		panel1.setLayout(null);
+		panel1.add(btnDangKy);
+		panel1.add(btnSua);
+		panel1.add(btnXoa);
+		panel1.add(btnLamMoi);
+		panel1.add(lblNewLabel_1_1_1_1_1_1_1_1_1_1_1_1_1);
+		panel1.add(textTen);
+		panel1.add(lblNewLabel_1);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(52, 223, 1902, 625);
+		scrollPane.setBounds(10, 207, 1516, 457);
 		add(scrollPane);
 		table = new JTable();
 		table.setRowHeight(30);

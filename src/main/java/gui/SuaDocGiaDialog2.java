@@ -44,7 +44,7 @@ public class SuaDocGiaDialog2 extends JDialog implements ActionListener{
 	private AbstractButton btnLamMoi;
 	private AbstractButton btnCapNhat;
 	//private DocGiaDao docGiaDao;
-	private DocGia docGia;
+	private KhachHang docGia;
 	private JComboBox cbGioiTinh;
 	/**
 	 * Launch the application.
@@ -275,7 +275,7 @@ public boolean capNhatDocGia() {
 		return false;
 	}
 //	System.out.println(docGiaDao.phatSinhMaTuDong());
-	DocGia dG= new DocGia();
+	KhachHang dG= new KhachHang();
 	
 //	try {
 //		DocGia docGia=docGiaDao.layDocGiaTheoMa(textField.getText().toString());

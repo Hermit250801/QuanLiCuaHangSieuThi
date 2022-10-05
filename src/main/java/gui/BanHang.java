@@ -5,6 +5,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -52,7 +53,7 @@ import com.toedter.calendar.JDateChooser;
 //import iRemote.ITheLoai;
 //import view.util.HeaderRenderer;
 
-public class MuonTraSach extends JPanel {
+public class BanHang extends JPanel {
 	/**
 	 * 
 	 */
@@ -86,7 +87,7 @@ public class MuonTraSach extends JPanel {
 	 * Create the panel.
 	 */
 	@SuppressWarnings("serial")
-	public MuonTraSach() {
+	public BanHang() {
 		try {
 			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 		} catch (ClassNotFoundException e1) {
@@ -111,9 +112,10 @@ public class MuonTraSach extends JPanel {
 //			e2.printStackTrace();
 //		}
 		setLayout(null);
+		setBounds(10, 162, 1550, 700);
 
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(0, 139, 1920, 420);
+		scrollPane_1.setBounds(10, 139, 1516, 244);
 		add(scrollPane_1);
 
 		tblSach = new JTable();
@@ -161,7 +163,7 @@ public class MuonTraSach extends JPanel {
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(160, 227, 242));
-		panel_1.setBounds(0, 557, 1920, 38);
+		panel_1.setBounds(10, 403, 1516, 38);
 		add(panel_1);
 		panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
@@ -191,11 +193,11 @@ public class MuonTraSach extends JPanel {
 		JLabel lblNewLabel_1 = new JLabel("Phieu  m\u01B0\u1EE3n");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblNewLabel_1.setBorder(new LineBorder(Color.LIGHT_GRAY));
-		lblNewLabel_1.setBounds(0, 108, 1918, 31);
+		lblNewLabel_1.setBounds(10, 108, 1516, 31);
 		add(lblNewLabel_1);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 626, 1920, 292);
+		scrollPane.setBounds(10, 492, 1516, 182);
 		add(scrollPane);
 
 		modelChiTiet = new DefaultTableModel(
@@ -238,44 +240,43 @@ public class MuonTraSach extends JPanel {
 		JLabel lblNewLabel_1_1 = new JLabel("Chi ti\u1EBFt phi\u1EBFu m\u01B0\u1EE3n");
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblNewLabel_1_1.setBorder(new LineBorder(Color.LIGHT_GRAY));
-		lblNewLabel_1_1.setBounds(0, 595, 1918, 31);
+		lblNewLabel_1_1.setBounds(10, 451, 1516, 31);
 		add(lblNewLabel_1_1);
 
 		JPanel panel = new JPanel();
-		panel.setLayout(null);
-		panel.setBounds(0, 0, 1920, 108);
+		panel.setBounds(10, 0, 1516, 108);
 		add(panel);
+		panel.setLayout(null);
 
 		txtTimKiem = new JTextField();
+		txtTimKiem.setBounds(478, 6, 96, 19);
 		txtTimKiem.setToolTipText("VÄƒn báº£n muá»‘n tÃ¬m");
 		txtTimKiem.setColumns(10);
-		txtTimKiem.setBounds(1465, 11, 301, 30);
 		panel.add(txtTimKiem);
 
 		btnTimKiem = new JButton("T\u00ECm ki\u1EBFm");
+		btnTimKiem.setBounds(579, 5, 75, 21);
 		btnTimKiem.setToolTipText("Thá»±c hiá»‡n tÃ¬m kiáº¿m");
-		btnTimKiem.setBounds(1763, 11, 101, 30);
 		panel.add(btnTimKiem);
 
 		rdnTheTv = new JRadioButton("Sá»‘ tháº»");
+		rdnTheTv.setBounds(659, 5, 73, 21);
 		rdnTheTv.setToolTipText("TÃ¬m báº±ng sá»‘ tháº» thÆ° viá»‡n");
-		rdnTheTv.setBounds(1465, 61, 92, 23);
 		panel.add(rdnTheTv);
 
 		rdnSdt = new JRadioButton("S\u1ED1 \u0111i\u1EC7n tho\u1EA1i \u0111\u1ED9c gi\u1EA3");
+		rdnSdt.setBounds(737, 5, 121, 21);
 		rdnSdt.setToolTipText("TÃ¬m báº±ng sá»‘ Ä‘iá»‡n thoáº¡i");
-		rdnSdt.setBounds(1569, 61, 164, 23);
 		panel.add(rdnSdt);
 
 		rdnMaPhieuMuon = new JRadioButton("M\u00E3 phi\u1EBFu m\u01B0\u1EE3n");
+		rdnMaPhieuMuon.setBounds(863, 5, 97, 21);
 		rdnMaPhieuMuon.setToolTipText("TÃ¬m báº±ng mÃ£ phiáº¿u mÆ°á»£n");
-		rdnMaPhieuMuon.setBounds(1755, 61, 109, 23);
 		panel.add(rdnMaPhieuMuon);
 
 		dayChoose = new JDateChooser(new Date());
+		dayChoose.setBounds(965, 6, 73, 19);
 		dayChoose.getCalendarButton().setToolTipText("Chá»�n ngÃ y");
-
-		dayChoose.setBounds(10, 41, 212, 30);
 		panel.add(dayChoose);
 		ButtonGroup group= new ButtonGroup();
 		group.add(rdnMaPhieuMuon);
@@ -412,7 +413,7 @@ public class MuonTraSach extends JPanel {
 	public static void main(String[] args) {
 		JFrame f = new JFrame();
 		f.setSize(1920, 918);
-		f.getContentPane().add(new MuonTraSach());
+		f.getContentPane().add(new BanHang());
 		f.setVisible(true);
 	}
 

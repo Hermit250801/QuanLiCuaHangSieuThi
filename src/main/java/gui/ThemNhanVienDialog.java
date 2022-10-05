@@ -30,7 +30,7 @@ import javax.swing.border.EmptyBorder;
 //import entity.DocGia;
 //import iRemote.DocGiaDao;
 
-public class ThemDocGiaDialog extends JDialog implements ActionListener{
+public class ThemNhanVienDialog extends JDialog implements ActionListener{
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextField texTen;
@@ -58,7 +58,7 @@ public class ThemDocGiaDialog extends JDialog implements ActionListener{
 	/**
 	 * Create the dialog.
 	 */
-	public ThemDocGiaDialog() {
+	public ThemNhanVienDialog() {
 		setIconImage(new ImageIcon("src/main/resources/img/logo.jpg").getImage());
 		setModal(true);
 //		try {

@@ -5,6 +5,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -41,6 +42,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumnModel;
+import java.awt.BorderLayout;
 
 //import chucNangChung.ChucNangChoTable;
 //import entity.NhanVien;
@@ -50,7 +52,7 @@ import javax.swing.table.TableColumnModel;
 //import iRemote.ITheLoai;
 //import view.util.HeaderRenderer;
 
-public class GuiSach extends JPanel {
+public class GuiSanPham extends JPanel {
 	private JList listLoaiSach;
 	private JTable tblSach;
 	private JTextField txtTrang;
@@ -66,7 +68,7 @@ public class GuiSach extends JPanel {
 	private JTextField txtTim;
 	private JRadioButton rdoTenSach;
 	private JRadioButton rdoTenTacGia;
-	private JButton btnNhapSach;
+	private JButton btnThem;
 //	private ISach sachDao;
 //	private ITheLoai theLoaiDao;
 	private DefaultListModel<Object> modelLoai;
@@ -74,7 +76,7 @@ public class GuiSach extends JPanel {
 //	private List<Sach> dsSach;
 //
 //	private List<Sach> listGioHang;
-	private JButton btnMuon;
+	private JButton btnSua;
 	private JButton btnTim;
 private NhanVien nhanVien;
 
@@ -86,28 +88,18 @@ private NhanVien nhanVien;
 	 * @throws MalformedURLException
 	 */
 	@SuppressWarnings({ "unchecked", "serial" })
-	public GuiSach() {
-//		try {
-//			sachDao = (ISach) Naming.lookup("rmi://192.168.1.3:2910/iSach");
-//			theLoaiDao = (ITheLoai) Naming.lookup("rmi://192.168.1.3:2910/iTheLoai");
-//		} catch (MalformedURLException e2) {
-//			e2.printStackTrace();
-//		} catch (RemoteException e2) {
-//			e2.printStackTrace();
-//		} catch (NotBoundException e2) {
-//			e2.printStackTrace();
-//		}
-
-		setPreferredSize(new Dimension(1920, 918));
+	public GuiSanPham() {
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	    setSize(screenSize.width, screenSize.height);
 
 		setLayout(null);
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBorder(new LineBorder(new Color(130, 135, 144)));
-		scrollPane.setBounds(0, 108, 240, 810);
+		scrollPane.setBounds(0, 108, 240, 693);
 		add(scrollPane);
 
-		JLabel lblNewLabel = new JLabel("Lo\u1EA1i s\u00E1ch");
+		JLabel lblNewLabel = new JLabel("Loại sản phẩm");
 		lblNewLabel.setOpaque(true);
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setBackground(new Color(102, 51, 0));
@@ -122,7 +114,7 @@ private NhanVien nhanVien;
 		scrollPane.setViewportView(listLoaiSach);
 
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(244, 143, 1680, 724);
+		scrollPane_1.setBounds(191, 149, 1335, 659);
 		add(scrollPane_1);
 
 		tblSach = new JTable();
@@ -158,7 +150,7 @@ private NhanVien nhanVien;
 
 		tblSach.setModel(modelSach);
 		tblSach.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		tblSach.setRowHeight(30);
+		tblSach.setRowHeight(20);
 		tblSach.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		h.setBackground(Color.black);
 		h.setForeground(Color.white);
@@ -166,7 +158,7 @@ private NhanVien nhanVien;
 
 		scrollPane_1.setViewportView(tblSach);
 //do rá»™ng cÃ¡c cá»™t
-		tblSach.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		tblSach.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		tblSach.getColumnModel().getColumn(0).setPreferredWidth(30);
 		tblSach.getColumnModel().getColumn(1).setPreferredWidth(30);
 		tblSach.getColumnModel().getColumn(2).setPreferredWidth(200);
@@ -222,36 +214,40 @@ private NhanVien nhanVien;
 		btnNext.setToolTipText("Trang ti\u1EBFp theo");
 		panel_1.add(btnNext);
 
-		JLabel lblNewLabel_1 = new JLabel("S\u00E1ch gi\u00E1o khoa");
+		JLabel lblNewLabel_1 = new JLabel("Sản Phẩm");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblNewLabel_1.setBorder(new LineBorder(Color.LIGHT_GRAY));
-		lblNewLabel_1.setBounds(240, 108, 1680, 31);
+		lblNewLabel_1.setBounds(240, 108, 1286, 31);
 		add(lblNewLabel_1);
 
 		panel = new JPanel();
-		panel.setBounds(0, 0, 1920, 108);
+		panel.setBounds(0, 0, 1526, 108);
 		add(panel);
 		panel.setLayout(null);
 
 		txtTim = new JTextField();
-		txtTim.setBounds(1465, 11, 301, 30);
+		txtTim.setBounds(1142, 46, 242, 28);
 		panel.add(txtTim);
 		txtTim.setColumns(10);
 
 		btnTim = new JButton("T\u00ECm ki\u1EBFm");
-		btnTim.setBounds(1763, 11, 101, 30);
+		btnTim.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnTim.setBounds(1394, 46, 106, 33);
 		panel.add(btnTim);
 
-		JRadioButton rdoMaSach = new JRadioButton("M\u00E3 S\u00E1ch");
-		rdoMaSach.setBounds(1465, 61, 79, 23);
+		JRadioButton rdoMaSach = new JRadioButton("Mã SP");
+		rdoMaSach.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		rdoMaSach.setBounds(1142, 77, 65, 21);
 		panel.add(rdoMaSach);
 
-		rdoTenSach = new JRadioButton("T\u00EAn s\u00E1ch");
-		rdoTenSach.setBounds(1553, 61, 79, 23);
+		rdoTenSach = new JRadioButton("Tên SP");
+		rdoTenSach.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		rdoTenSach.setBounds(1209, 77, 90, 21);
 		panel.add(rdoTenSach);
 
-		rdoTenTacGia = new JRadioButton("T\u00EAn t\u00E1c gi\u1EA3");
-		rdoTenTacGia.setBounds(1638, 61, 109, 23);
+		rdoTenTacGia = new JRadioButton("Trạng Thái");
+		rdoTenTacGia.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		rdoTenTacGia.setBounds(1301, 77, 98, 21);
 		panel.add(rdoTenTacGia);
 
 		ButtonGroup buttonGroup = new ButtonGroup();
@@ -259,15 +255,17 @@ private NhanVien nhanVien;
 		buttonGroup.add(rdoTenSach);
 		buttonGroup.add(rdoTenTacGia);
 
-		btnNhapSach = new JButton("Nh\u1EADp s\u00E1ch");
-		btnNhapSach.setBounds(238, 72, 153, 30);
-		panel.add(btnNhapSach);
+		btnThem = new JButton("Nhập hàng");
+		btnThem.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnThem.setBounds(241, 59, 111, 39);
+		panel.add(btnThem);
 
-		btnMuon = new JButton("MÆ°á»£n (0)");
-		btnMuon.setBounds(395, 72, 153, 30);
-		panel.add(btnMuon);
+		btnSua = new JButton("Sửa sản phẩm");
+		btnSua.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnSua.setBounds(362, 59, 131, 39);
+		panel.add(btnSua);
 
-		btnNhapSach.addActionListener(e -> {
+		btnThem.addActionListener(e -> {
 			new NhapSach().setVisible(true);
 		});
 		txtTrang.setEditable(false);
@@ -275,6 +273,11 @@ private NhanVien nhanVien;
 		loadListLoaiSach();
 		setLableTongSoTrang();
 		rdoMaSach.setSelected(true);
+		
+		JButton btnXoaSp = new JButton("Xóa sản phẩm");
+		btnXoaSp.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnXoaSp.setBounds(505, 59, 131, 39);
+		panel.add(btnXoaSp);
 		//listGioHang = new ArrayList<Sach>();
 		tblSach.addMouseListener(new MouseListener() {
 
@@ -406,7 +409,7 @@ private NhanVien nhanVien;
 //				}
 //			}
 		});
-		btnMuon.addActionListener(e -> {
+		btnSua.addActionListener(e -> {
 //			if (listGioHang.size() <= 0) {
 //				JOptionPane.showMessageDialog(this, "ChÆ°a thÃªm quyá»ƒn sÃ¡ch nÃ o vÃ o giá»�");
 //				return;
@@ -540,7 +543,7 @@ private NhanVien nhanVien;
 	public static void main(String[] args) {
 		JFrame f = new JFrame();
 		f.setSize(1920, 918);
-		f.getContentPane().add(new GuiSach());
+		f.getContentPane().add(new GuiSanPham());
 		f.setVisible(true);
 	}
 
@@ -594,34 +597,6 @@ private NhanVien nhanVien;
 	}
 
 	public void setBtnMuon(int soLuong) {
-		btnMuon.setText("MÆ°á»£n (" + soLuong + ")");
+		btnSua.setText("MÆ°á»£n (" + soLuong + ")");
 	}
-
-//	public Sach timTheoMaSach(String maSach) {
-//		try {
-//			return sachDao.getSach(maSach);
-//		} catch (RemoteException e) {
-//			e.printStackTrace();
-//		}
-//		return null;
-//	}
-//
-//	public List<Sach> timTheoTenSach(String tenSach) {
-//		try {
-//			return sachDao.getSachTheoTen(tenSach, 0, 2000000000);
-//		} catch (RemoteException e) {
-//			e.printStackTrace();
-//		}
-//		return null;
-//	}
-
-//	public List<Sach> timSachTheoTenTacGia(String tenTacGia) {
-//		try {
-//			return sachDao.timSachTheoTenTacGia(tenTacGia);
-//		} catch (RemoteException e) {
-//			e.printStackTrace();
-//		}
-//		return null;
-//	}
-
 }

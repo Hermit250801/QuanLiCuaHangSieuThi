@@ -26,6 +26,9 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
+import java.awt.Frame;
+import java.awt.Toolkit;
+import java.awt.FlowLayout;
 
 //import entity.TaiKhoan;
 
@@ -37,16 +40,16 @@ public class TrangChu extends JFrame {
 	private static final long serialVersionUID = 3267576735935490358L;
 	private JPanel contentPane;
 	private JButton btnSach;
-	private JButton btnMuonTra;
+	private JButton btnBanHang;
 	private JButton btnNhanVien;
 	private JPopupMenu popupDocGia;
-	private JButton btnDocGia;
+	private JButton btnKhachHang;
 	private JLabel lblThoat;
 	private JPanel pnThayDoi;
 	
 	private JPanel guiDocGia= new QLDocGia();
-	private GuiSach guiSach= new GuiSach();
-	private JPanel guiMuonTraSach= new MuonTraSach();
+	private GuiSanPham guiSach= new GuiSanPham();
+	private JPanel guiMuonTraSach= new BanHang();
 	private JPanel guiNhanVien= new DSNhanVien();
 	private JLabel lblNguoiDung;
 	private JLabel lblChucVu;
@@ -72,56 +75,63 @@ public class TrangChu extends JFrame {
 	 * Create the frame.
 	 */
 	public TrangChu() {
+		setPreferredSize(new Dimension(1650, 800));
+		getContentPane().setPreferredSize(new Dimension(1650, 800));
+		getContentPane().setMaximumSize(new Dimension(1650, 800));
+		setResizable(false);
+		setExtendedState(JFrame.MAXIMIZED_BOTH); 
+		setUndecorated(true);
 		setIconImage(new ImageIcon("src/main/resources/img/logo.jpg").getImage());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1920, 1080);
-		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setUndecorated(true);
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	    setSize(screenSize.width, screenSize.height);
 
 		contentPane = (JPanel) getContentPane();
-		contentPane.setLayout(null);
+		getContentPane().setLayout(null);
 
 		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 1522, 69);
 		panel.setBackground(Color.WHITE);
-		panel.setBounds(0, 0, 1920, 108);
 		contentPane.add(panel);
 		panel.setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(664, 19, 0, 0);
+		lblNewLabel.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		lblNewLabel.setIcon(new ImageIcon("src\\main\\resources\\img\\logo.jpg"));
-		lblNewLabel.setBounds(0, 0, 128, 108);
 		panel.add(lblNewLabel);
 
-		lblNguoiDung = new JLabel("Chinh");
+		lblNguoiDung = new JLabel("Trường");
+		lblNguoiDung.setBounds(1227, -1, 156, 29);
 		lblNguoiDung.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblNguoiDung.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 		lblNguoiDung.setIcon(
 				new ImageIcon("src\\main\\resources\\img\\profile-user.png"));
-		lblNguoiDung.setBounds(1712, 0, 196, 32);
 		lblNguoiDung.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		panel.add(lblNguoiDung);
 
-		lblChucVu = new JLabel("Th\u1EE7 th\u01B0");
+		lblChucVu = new JLabel("Quản Lí");
+		lblChucVu.setBounds(1393, 5, 65, 22);
 		lblChucVu.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblChucVu.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-		lblChucVu.setBounds(1813, 40, 97, 32);
 		panel.add(lblChucVu);
 		
-		lblThoat = new JLabel("ThoÃ¡t");
+		lblThoat = new JLabel("Thoát");
+		lblThoat.setBounds(1458, 5, 54, 22);
 		lblThoat.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblThoat.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblThoat.setBounds(1800, 77, 110, 31);
 		panel.add(lblThoat);
 
 		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(0, 69, 1522, 56);
 		panel_1.setBackground(Color.WHITE);
 		panel_1.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		panel_1.setBorder(new MatteBorder(0, 0, 5, 0, (Color) new Color(4,135,217)));
-		panel_1.setBounds(0, 108, 1920, 54);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 
-		btnSach = new JButton("S\u00E1ch");
+		btnSach = new JButton("Sản Phẩm");
 		btnSach.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 		btnSach.setAlignmentX(Component.CENTER_ALIGNMENT);
 		btnSach.setRequestFocusEnabled(false);
@@ -133,27 +143,29 @@ public class TrangChu extends JFrame {
 		btnSach.setBounds(0, -1, 150, 54);
 		panel_1.add(btnSach);
 
-		btnMuonTra = new JButton("M\u01B0\u1EE3n tr\u1EA3");
-		btnMuonTra.setRequestFocusEnabled(false);
-		btnMuonTra.setBorder(new LineBorder(new Color(4,135,217)));
-		btnMuonTra.setPreferredSize(new Dimension(150, 56));
-		btnMuonTra.setForeground(Color.WHITE);
-		btnMuonTra.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnMuonTra.setBackground(new Color(4,135,217));
-		btnMuonTra.setBounds(150, -1, 150, 54);
-		panel_1.add(btnMuonTra);
+		btnBanHang = new JButton("Bán hàng");
 
-		btnDocGia = new JButton("\u0110\u1ECDc gi\u1EA3");
-		btnDocGia.setRequestFocusEnabled(false);
-		btnDocGia.setBorder(new LineBorder(new Color(4,135,217)));
-		btnDocGia.setPreferredSize(new Dimension(150, 56));
-		btnDocGia.setForeground(Color.WHITE);
-		btnDocGia.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnDocGia.setBackground(new Color(4,135,217));
-		btnDocGia.setBounds(300, -1, 150, 54);
-		panel_1.add(btnDocGia);
+		btnBanHang.setRequestFocusEnabled(false);
+		btnBanHang.setBorder(new LineBorder(new Color(4,135,217)));
+		btnBanHang.setPreferredSize(new Dimension(150, 56));
+		btnBanHang.setForeground(Color.WHITE);
+		btnBanHang.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnBanHang.setBackground(new Color(4,135,217));
+		btnBanHang.setBounds(150, -1, 150, 54);
+		panel_1.add(btnBanHang);
+
+		btnKhachHang = new JButton("Khách Hàng");
+		btnKhachHang.setRequestFocusEnabled(false);
+		btnKhachHang.setBorder(new LineBorder(new Color(4,135,217)));
+		btnKhachHang.setPreferredSize(new Dimension(150, 56));
+		btnKhachHang.setForeground(Color.WHITE);
+		btnKhachHang.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnKhachHang.setBackground(new Color(4,135,217));
+		btnKhachHang.setBounds(300, -1, 150, 54);
+		panel_1.add(btnKhachHang);
 
 		btnNhanVien = new JButton("Nh\u00E2n vi\u00EAn");
+
 		btnNhanVien.setRequestFocusEnabled(false);
 		btnNhanVien.setBorder(new LineBorder(new Color(4,135,217)));
 		btnNhanVien.setPreferredSize(new Dimension(150, 56));
@@ -165,12 +177,12 @@ public class TrangChu extends JFrame {
 
 		
 		pnThayDoi=guiSach;
-		pnThayDoi.setBounds(0, 162, 1920, 907);
-		pnThayDoi.setLayout(new BorderLayout());
+		guiSach.setBounds(0, 122, 1522, 699);
 		getContentPane().add(pnThayDoi);
+		guiSach.setLayout(new BorderLayout(0, 0));
 
 		popupDocGia = new JPopupMenu();
-		addPopup(btnDocGia, popupDocGia);
+		addPopup(btnKhachHang, popupDocGia);
 		popupDocGia.setBorder(new LineBorder(new Color(0, 0, 0)));
 		popupDocGia.setAlignmentX(0.5f);
 
@@ -225,19 +237,19 @@ public class TrangChu extends JFrame {
 				
 			}
 		});
-		suKienChuotButton(btnMuonTra, null);
+		suKienChuotButton(btnBanHang, null);
 		suKienChuotButton(btnNhanVien, null);
 		suKienChuotButton(btnSach, null);
-		suKienChuotButton(btnDocGia, null);
+		suKienChuotButton(btnKhachHang, null);
 		
-		btnMuonTra.addActionListener(e->{
+		btnBanHang.addActionListener(e->{
 			setPnThayDoi(guiMuonTraSach);
 			
 		});
 		btnSach.addActionListener(e->{
 			setPnThayDoi(guiSach);
 		});
-		btnDocGia.addActionListener(e->{
+		btnKhachHang.addActionListener(e->{
 			setPnThayDoi(guiDocGia);
 			
 		});
@@ -342,10 +354,10 @@ public class TrangChu extends JFrame {
 	 * 
 	 */
 	public void resetColorMenu() {
-		btnMuonTra.setBackground(new Color(4,135,217));
+		btnBanHang.setBackground(new Color(4,135,217));
 		btnNhanVien.setBackground(new Color(4,135,217));
 		btnSach.setBackground(new Color(4,135,217));
-		btnDocGia.setBackground(new Color(4,135,217));
+		btnKhachHang.setBackground(new Color(4,135,217));
 	}
 	/**
 	 * Thay Ä‘á»•i cÃ¡c pannel
@@ -355,7 +367,7 @@ public class TrangChu extends JFrame {
 		SwingUtilities.invokeLater(()->{
 			getContentPane().remove(pnThayDoi);
 			pnThayDoi=panel;
-			pnThayDoi.setBounds(0, 162, 1920, 907);
+			pnThayDoi.setBounds(10, 162, 1550, 700);
 			this.revalidate();
 			this.repaint();
 			getContentPane().add(pnThayDoi);
